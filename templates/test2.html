@@ -1,0 +1,70 @@
+{% block body %}
+ 
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <body>
+    <!--Table and divs that hold the pie charts-->
+    
+      <div id="chart_div1" style="border: 1px solid #ccc"></div>
+      <br>
+      <br>
+      <div id="chart_div2" style="border: 1px solid #ccc"></div>
+     
+  </body>
+
+  
+  
+<script type='text/javascript'>//<![CDATA[ 
+ 
+google.load('visualization', '1', {packages: ['corechart', 'bar']});
+google.setOnLoadCallback(drawBasic1);
+// alert({{x}})
+// alert('{{rates[0]['date']}}')
+
+
+function drawBasic1() {
+        // Create our data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'http_status_code');
+        data.addColumn('number', 'count_error');
+        // alert("hi")
+        var a=[]
+        
+                {%- for r in rates %}
+                a.push([{{r['http_status_code']}}, {{r['count_error']}}])
+                {%- endfor %}
+        data.addRows(a)
+        var options1 = {
+        title: 'http_status_code vs error count for 5 days  ',
+        // titleFontSize:18,
+        // width: 1100, height: 600,
+        // chartArea: {width: '80%',height:'70%'},
+        // bar: {groupWidth: "95%"},
+        hAxis: {
+          title: 'http_status_code',        
+          viewWindow: {
+                  min: 400,
+                  max: 410
+        },
+        // ticks:[]
+      },
+        vAxis: {
+          title: 'Count'
+        }
+      };  
+      
+ 
+      var chart1 = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
+      
+      chart1.draw(data, options1);
+    } 
+
+
+      
+
+    
+//]]>  
+ 
+</script>
+ 
+ 
+{% endblock %}

@@ -1,0 +1,20 @@
+// function drawBasic() {
+//       var data1=[]
+//       var Header= ['date','number_of_request_url' , { role: 'style' }];
+//        data1.push(Header);
+//        var l='{{rates}}'.length;
+//        alert(l);
+
+        
+//        
+        // data1 = google.visualization.arrayToDataTable(data1);
+        
+      // var data1 = google.visualization.arrayToDataTable([
+      //   ['date','number_of_request_url' , { role: 'style' }],
+      //   ['{{rates[0]['date']}}', {{rates[0]['number_of_request_url']}}, 'gold'],
+      //   ['{{rates[1]['date']}}', {{rates[1]['number_of_request_url']}}, 'silver'],
+      //   ['{{rates[2]['date']}}', {{rates[2]['number_of_request_url']}}, 'brown'],
+      //   ['{{rates[3]['date']}}', {{rates[3]['number_of_request_url']}}, 'green'],
+      //   ['{{rates[4]['date']}}', {{rates[4]['number_of_request_url']}}, 'yellow']
+      // ]);
+      

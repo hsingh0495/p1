@@ -1,0 +1,1 @@
+select approx_distinct(client_ip_address) from access_logs where date= date_parse(date_format(now() - interval '1' DAY, '%Y-%m-%d'), '%Y-%m-%d') ;

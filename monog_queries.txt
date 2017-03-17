@@ -1,0 +1,6 @@
+ db.c2.aggregate([{$match: { query: 1 }},{$group:{_id:"$http_status_code",total:{$sum:"$count"}}} ])
+
+
+ /////multiple fields in group by 
+
+ db.c2.aggregate([{$match: { query: 1 }},{$group:{_id:{"status_code":"$http_status_code","date":"$date"},total:{$sum:"$count"}}} ])

@@ -1,0 +1,1 @@
+select  count(1) as jss_optimize_requests from access_logs where date = timestamp '2016-11-25' and request_url like '%.js%' and jss_service_request = 'svc_request_profiling';

@@ -1,0 +1,9 @@
+0 */1 * * * python /home/instartadmin/Desktop/try/final2.py 1 > /tmp/sh_new1.log 2>&1
+0 */1 * * * python /home/instartadmin/Desktop/try/final2.py 2  > /tmp/sh_new2.log 2>&1
+0 */1 * * * python /home/instartadmin/Desktop/try/final2.py 3 > /tmp/sh_new3.log 2>&1
+0 */1 * * * python /home/instartadmin/Desktop/try/final2.py 4  > /tmp/sh_new4.log 2>&1
+0 */1 * * * python /home/instartadmin/Desktop/try/final2.py 5  > /tmp/sh_new5.log 2>&1
+0 */1 * * * python /home/instartadmin/Desktop/try/final2.py 6  > /tmp/sh_new6.log 2>&1
+0 */1 * * * python /home/instartadmin/Desktop/try/final2.py 7  > /tmp/sh_new7.log 2>&1
+0 */1 * * * python /home/instartadmin/Desktop/try/final2.py 8 > /tmp/sh_new8.log 2>&1
+0 */1 * * * python /home/instartadmin/Desktop/try/final2.py 9  > /tmp/sh_new9.log 2>&1

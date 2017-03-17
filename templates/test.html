@@ -1,0 +1,93 @@
+{% block body %}
+ 
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <body>
+    <!--Table and divs that hold the pie charts-->
+    
+      <div id="chart_div1" style="border: 1px solid #ccc"></div>
+      <br>
+      <br>
+      <div id="chart_div2" style="border: 1px solid #ccc"></div>
+     
+  </body>
+
+  
+  
+<script type='text/javascript'>//<![CDATA[ 
+ 
+google.load('visualization', '1', {packages: ['corechart', 'bar']});
+google.setOnLoadCallback(drawBasic1);
+google.setOnLoadCallback(drawBasic2);
+
+
+function drawBasic1() {
+        // Create our data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'date');
+        data.addColumn('number', 'number_of_request_url');
+        // alert("hi")
+        var a=[]
+        
+                {%- for r in rates %}
+                a.push(['{{r['date']}}', {{r['number_of_request_url']}}])
+                {%- endfor %}
+        data.addRows(a)
+        var options1 = {
+        title: 'Number of Urls Hit per day  ',
+        titleFontSize:18,
+        // width: 1100, height: 600,
+        chartArea: {width: '80%',height:'60%'},
+        hAxis: {
+          title: 'Date',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Number_of_request_url'
+        }
+      };  
+      
+ 
+      var chart1 = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
+      
+      chart1.draw(data, options1);
+    } 
+
+function drawBasic2() {
+        // Create our data table.
+        var data2 = new google.visualization.DataTable();
+        data2.addColumn('string', 'date');
+        data2.addColumn('number', 'number_of_hits');
+        // alert("hi")
+        var a=[]
+        
+                {%- for r in rates %}
+                a.push(['{{r['date']}}', {{r['number_of_hits']}}])
+                {%- endfor %}
+        data2.addRows(a)
+        var options2 = {
+        title: 'Last mile Bandwidths ',
+        titleFontSize:18,
+        chartArea: {width: '80%',height:'60%'},
+        hAxis: {
+          title: 'Date',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'last mile bandwidth in Gb'
+        }
+      };  
+      
+ 
+      var chart2 = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+      
+      chart2.draw(data2, options2);
+    }       
+      
+
+    
+//]]>  
+ 
+</script>
+ 
+ 
+{% endblock %}

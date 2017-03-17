@@ -1,0 +1,3 @@
+select content_type , count(*) , (sum(ORIGINAL_BANDWIDTH_BYTES)*1.0)/1073741824 , (sum(LAST_MILE_BANDWIDTH_BYTES)*1.0)/1073741824 , (sum(ORIGINAL_BANDWIDTH_BYTES-LAST_MILE_BANDWIDTH_BYTES)*1.0)/1073741824 AS No_of_Bytes_Saved_in_GB FROM access_logs WHERE ORIGINAL_BANDWIDTH_BYTES > LAST_MILE_BANDWIDTH_BYTES AND IMAGE_RESPONSE_TYPE IS NOT NULL AND CONTENT_TYPE not LIKE '%text%' AND content_type in ('image/vnd.ms-photo', 'image/webp', 'image/png', 'image/gif', 'image/jpg', 'image/jpeg', 'image/png', 'image/gif')  and cache_status = 'hit' and date = date_parse(date_format(now() - interval '1' DAY, '%Y-%m-%d'), '%Y-%m-%d')   GROUP BY content_type;
+
+

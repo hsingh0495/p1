@@ -1,0 +1,1 @@
+ SELECT count(request_url) as number_of_hits , (sum(LAST_MILE_BANDWIDTH_BYTES)*1.0)/1073741824 AS No_of_Bytes_in_GB FROM access_logs where date=timestamp'2016-12-28' and hourofday=16;
